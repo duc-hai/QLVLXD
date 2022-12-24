@@ -60,10 +60,27 @@ namespace QLVLXD
             frm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void panelControl4_Click(object sender, EventArgs e)
         {
-            frmKhachHang frm = new frmKhachHang();
-            //frm.MdiParent = this;
+            frmReport frm = new frmReport();
+            frm.Show();
+        }
+
+        private void panelControl2_Click(object sender, EventArgs e)
+        {
+            frmThanhToan frm = new frmThanhToan();
+            frm.Show();
+        }
+
+        private void panelControl3_Click(object sender, EventArgs e)
+        {
+            frmSanPham frm = new frmSanPham();
+            frm.Show();
+        }
+
+        private void panelControl5_Click(object sender, EventArgs e)
+        {
+            frmHoaDon frm = new frmHoaDon();
             frm.Show();
         }
     }

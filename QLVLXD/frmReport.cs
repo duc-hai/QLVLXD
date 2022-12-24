@@ -39,5 +39,18 @@ namespace QLVLXD
             this.rpKhach.RefreshReport();
 
         }
+
+        private void checkButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.rpKhach.Visible = true;
+            this.rpKhach.RefreshReport();
+            List<KHACH> lst = new List<KHACH>();
+            lst = data.KHACHes.ToList();
+            rpKhach.LocalReport.ReportPath = "rpKhachHang.rdlc";
+            ReportDataSource source = new ReportDataSource("DataSet1", lst);
+            rpKhach.LocalReport.DataSources.Clear();
+            rpKhach.LocalReport.DataSources.Add(source);
+            this.rpKhach.RefreshReport();
+        }
     }
 }

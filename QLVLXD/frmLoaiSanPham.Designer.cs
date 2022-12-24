@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoaiSanPham));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtMaLoaiSP = new System.Windows.Forms.TextBox();
             this.txtText = new System.Windows.Forms.Label();
             this.txtTenLoaiSP = new System.Windows.Forms.TextBox();
@@ -38,25 +37,18 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.menuDelete = new System.Windows.Forms.ToolStripButton();
+            this.menuClear = new System.Windows.Forms.ToolStripButton();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.menuClear = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 34);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(396, 317);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // txtMaLoaiSP
             // 
@@ -132,6 +124,15 @@
             this.menuDelete.Text = "Delete";
             this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
             // 
+            // menuClear
+            // 
+            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
+            this.menuClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuClear.Name = "menuClear";
+            this.menuClear.Size = new System.Drawing.Size(54, 22);
+            this.menuClear.Text = "Clear";
+            this.menuClear.Click += new System.EventHandler(this.menuClear_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -169,51 +170,49 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách loại sản phẩm";
             // 
-            // groupBox3
+            // dataGridView1
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(403, 35);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(396, 363);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Danh sách loại sản phẩm";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 30);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(360, 317);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // menuClear
+            // groupControl1
             // 
-            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
-            this.menuClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuClear.Name = "menuClear";
-            this.menuClear.Size = new System.Drawing.Size(54, 22);
-            this.menuClear.Text = "Clear";
-            this.menuClear.Click += new System.EventHandler(this.menuClear_Click);
+            this.groupControl1.Controls.Add(this.dataGridView1);
+            this.groupControl1.Location = new System.Drawing.Point(415, 39);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(360, 359);
+            this.groupControl1.TabIndex = 11;
+            this.groupControl1.Text = "Danh sách loại sản phẩm";
             // 
             // frmLoaiSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 398);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox3);
             this.Name = "frmLoaiSanPham";
             this.Text = "Thông tin loại sản phẩm";
             this.Load += new System.EventHandler(this.frmLoaiSanPham_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtMaLoaiSP;
         private System.Windows.Forms.Label txtText;
         private System.Windows.Forms.TextBox txtTenLoaiSP;
@@ -224,8 +223,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ToolStripButton menuDelete;
         private System.Windows.Forms.ToolStripButton menuClear;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

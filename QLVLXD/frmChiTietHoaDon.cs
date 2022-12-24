@@ -66,7 +66,7 @@ namespace QLVLXD
                               DonGia = t.DONGIA,
                           };
 
-            //menuDelete.Enabled = false;
+            menuDelete.Enabled = false;
             dataGridView1.DataSource = columns.ToList();
         }
 
@@ -93,7 +93,7 @@ namespace QLVLXD
                     MessageBox.Show("Lưu dữ liệu thành công", "Thông báo");
                     LoadData();
 
-                    //menuDelete.Enabled = false;
+                    menuDelete.Enabled = false;
                     resetTextBox();
                 }
                 else
@@ -154,7 +154,7 @@ namespace QLVLXD
                 //
                 cboMaHoaDon.Enabled = false;
                 cboMaSanPham.Enabled = false;
-                //menuDelete.Enabled = true;
+                menuDelete.Enabled = true;
                 action = true;
             }
         }
@@ -177,7 +177,7 @@ namespace QLVLXD
         private void menuClear_Click(object sender, EventArgs e)
         {
             action = false;
-            //menuDelete.Enabled = false;
+            menuDelete.Enabled = false;
             cboMaHoaDon.Enabled = true;
             cboMaSanPham.Enabled = true;
             resetTextBox();

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.rpKhach = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.btnListClick = new System.Windows.Forms.Button();
+            this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
             this.SuspendLayout();
             // 
             // rpKhach
@@ -40,22 +40,21 @@
             this.rpKhach.Size = new System.Drawing.Size(796, 326);
             this.rpKhach.TabIndex = 0;
             // 
-            // btnListClick
+            // checkButton1
             // 
-            this.btnListClick.Location = new System.Drawing.Point(293, 36);
-            this.btnListClick.Name = "btnListClick";
-            this.btnListClick.Size = new System.Drawing.Size(244, 23);
-            this.btnListClick.TabIndex = 1;
-            this.btnListClick.Text = "Xem danh sách khách hàng";
-            this.btnListClick.UseVisualStyleBackColor = true;
-            this.btnListClick.Click += new System.EventHandler(this.btnListClick_Click);
+            this.checkButton1.Location = new System.Drawing.Point(34, 26);
+            this.checkButton1.Name = "checkButton1";
+            this.checkButton1.Size = new System.Drawing.Size(200, 23);
+            this.checkButton1.TabIndex = 2;
+            this.checkButton1.Text = "Thống kê danh sách khách hàng";
+            this.checkButton1.CheckedChanged += new System.EventHandler(this.checkButton1_CheckedChanged);
             // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnListClick);
+            this.Controls.Add(this.checkButton1);
             this.Controls.Add(this.rpKhach);
             this.Name = "frmReport";
             this.Text = "frmReport";
@@ -67,6 +66,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer rpKhach;
-        private System.Windows.Forms.Button btnListClick;
+        private DevExpress.XtraEditors.CheckButton checkButton1;
     }
 }

@@ -167,5 +167,11 @@ namespace QLVLXD
             txtMaSP.ReadOnly = false;
             resetTextBox();
         }
+
+        private void cbLoaiSP_Click(object sender, EventArgs e)
+        {
+            frmLoaiSanPham frm = new frmLoaiSanPham();
+            frm.Show();
+        }
     }
 }

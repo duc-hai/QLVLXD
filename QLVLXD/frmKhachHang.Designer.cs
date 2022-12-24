@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachHang));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbSave = new System.Windows.Forms.ToolStripButton();
-            this.menuDelete = new System.Windows.Forms.ToolStripButton();
-            this.menuClear = new System.Windows.Forms.ToolStripButton();
             this.label3 = new System.Windows.Forms.Label();
             this.grContrl1 = new DevExpress.XtraEditors.GroupControl();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -51,52 +47,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNoHienTai = new System.Windows.Forms.TextBox();
             this.gbInformation = new System.Windows.Forms.GroupBox();
-            this.toolStrip1.SuspendLayout();
+            this.tsbSave = new System.Windows.Forms.ToolStripButton();
+            this.menuDelete = new System.Windows.Forms.ToolStripButton();
+            this.menuClear = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.grContrl1)).BeginInit();
             this.grContrl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbInformation.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSave,
-            this.menuDelete,
-            this.menuClear});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(805, 27);
-            this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbSave
-            // 
-            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
-            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(54, 24);
-            this.tsbSave.Text = "Lưu ";
-            this.tsbSave.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // menuDelete
-            // 
-            this.menuDelete.Image = ((System.Drawing.Image)(resources.GetObject("menuDelete.Image")));
-            this.menuDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuDelete.Name = "menuDelete";
-            this.menuDelete.Size = new System.Drawing.Size(54, 24);
-            this.menuDelete.Text = "Xóa ";
-            this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
-            // 
-            // menuClear
-            // 
-            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
-            this.menuClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuClear.Name = "menuClear";
-            this.menuClear.Size = new System.Drawing.Size(58, 24);
-            this.menuClear.Text = "Clear";
-            this.menuClear.Click += new System.EventHandler(this.menuClear_Click);
             // 
             // label3
             // 
@@ -236,7 +196,6 @@
             this.label6.Size = new System.Drawing.Size(81, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Nợ đầu kỳ";
- 
             // 
             // label7
             // 
@@ -248,7 +207,6 @@
             this.label7.Size = new System.Drawing.Size(87, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "Nợ hiện tại";
-    
             // 
             // txtNoHienTai
             // 
@@ -281,6 +239,46 @@
             this.gbInformation.TabIndex = 9;
             this.gbInformation.TabStop = false;
             // 
+            // tsbSave
+            // 
+            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
+            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSave.Name = "tsbSave";
+            this.tsbSave.Size = new System.Drawing.Size(54, 24);
+            this.tsbSave.Text = "Lưu ";
+            this.tsbSave.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // menuDelete
+            // 
+            this.menuDelete.Image = ((System.Drawing.Image)(resources.GetObject("menuDelete.Image")));
+            this.menuDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuDelete.Name = "menuDelete";
+            this.menuDelete.Size = new System.Drawing.Size(54, 24);
+            this.menuDelete.Text = "Xóa ";
+            this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
+            // 
+            // menuClear
+            // 
+            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
+            this.menuClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuClear.Name = "menuClear";
+            this.menuClear.Size = new System.Drawing.Size(58, 24);
+            this.menuClear.Text = "Clear";
+            this.menuClear.Click += new System.EventHandler(this.menuClear_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbSave,
+            this.menuDelete,
+            this.menuClear});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(805, 27);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,13 +291,13 @@
             this.Name = "frmKhachHang";
             this.Text = "Ngân Trâm - Đức Hải";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grContrl1)).EndInit();
             this.grContrl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbInformation.ResumeLayout(false);
             this.gbInformation.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +308,6 @@
         private System.Windows.Forms.TextBox txtTenKhach;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbInformation;
         private System.Windows.Forms.TextBox txtNoHienTai;
@@ -321,11 +318,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripButton menuDelete;
-        private System.Windows.Forms.ToolStripButton menuClear;
-        private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.XtraEditors.GroupControl grContrl1;
         private DevExpress.DataAccess.Json.JsonDataSource jsonDataSource1;
+        private System.Windows.Forms.ToolStripButton tsbSave;
+        private System.Windows.Forms.ToolStripButton menuDelete;
+        private System.Windows.Forms.ToolStripButton menuClear;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

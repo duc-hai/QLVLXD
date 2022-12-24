@@ -153,5 +153,11 @@ namespace QLVLXD
             txtSoHoaDon.ResetText();
             txtSoHoaDon.Focus();
         }
+
+        private void ttChiTietHoaDon_Click(object sender, EventArgs e)
+        {
+            frmChiTietHoaDon frm = new frmChiTietHoaDon();
+            frm.Show();
+        }
     }
 }

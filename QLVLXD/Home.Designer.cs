@@ -47,7 +47,6 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -125,6 +124,7 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(333, 260);
             this.panelControl3.TabIndex = 1;
+            this.panelControl3.Click += new System.EventHandler(this.panelControl3_Click);
             // 
             // pictureBox6
             // 
@@ -163,6 +163,7 @@
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(333, 260);
             this.panelControl4.TabIndex = 1;
+            this.panelControl4.Click += new System.EventHandler(this.panelControl4_Click);
             // 
             // pictureBox5
             // 
@@ -202,6 +203,7 @@
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Size = new System.Drawing.Size(333, 260);
             this.panelControl5.TabIndex = 1;
+            this.panelControl5.Click += new System.EventHandler(this.panelControl5_Click);
             // 
             // labelControl4
             // 
@@ -279,6 +281,7 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(333, 260);
             this.panelControl2.TabIndex = 2;
+            this.panelControl2.Click += new System.EventHandler(this.panelControl2_Click);
             // 
             // pictureBox1
             // 
@@ -307,16 +310,6 @@
             this.labelControl3.Text = "Thanh toán";
             this.labelControl3.Click += new System.EventHandler(this.labelControl3_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(443, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Home
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -325,7 +318,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 756);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelControl6);
@@ -387,6 +379,5 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button1;
     }
 }
