@@ -39,14 +39,12 @@
             this.cboMaHoaDon = new System.Windows.Forms.ComboBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
-            this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
-            this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
             this.navButton1 = new DevExpress.XtraBars.Navigation.NavButton();
             this.navButton3 = new DevExpress.XtraBars.Navigation.NavButton();
+            this.controlNavigator1 = new DevExpress.XtraEditors.ControlNavigator();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -158,30 +156,6 @@
             this.txtDonGia.TabIndex = 18;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
-            // tileNavPane1
-            // 
-            this.tileNavPane1.Buttons.Add(this.navButton2);
-            // 
-            // tileNavCategory1
-            // 
-            this.tileNavPane1.DefaultCategory.Name = "tileNavCategory1";
-            // 
-            // 
-            // 
-            this.tileNavPane1.DefaultCategory.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tileNavPane1.Location = new System.Drawing.Point(0, 0);
-            this.tileNavPane1.Name = "tileNavPane1";
-            this.tileNavPane1.Size = new System.Drawing.Size(800, 40);
-            this.tileNavPane1.TabIndex = 20;
-            this.tileNavPane1.Text = "tileNavPane1";
-            // 
-            // navButton2
-            // 
-            this.navButton2.Caption = "Main Menu";
-            this.navButton2.IsMain = true;
-            this.navButton2.Name = "navButton2";
-            // 
             // navButton1
             // 
             this.navButton1.Caption = "Main Menu";
@@ -194,12 +168,20 @@
             this.navButton3.IsMain = true;
             this.navButton3.Name = "navButton3";
             // 
+            // controlNavigator1
+            // 
+            this.controlNavigator1.Location = new System.Drawing.Point(445, 13);
+            this.controlNavigator1.Name = "controlNavigator1";
+            this.controlNavigator1.Size = new System.Drawing.Size(167, 24);
+            this.controlNavigator1.TabIndex = 20;
+            this.controlNavigator1.Text = "controlNavigator1";
+            // 
             // frmChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 385);
-            this.Controls.Add(this.tileNavPane1);
+            this.Controls.Add(this.controlNavigator1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmChiTietHoaDon";
@@ -209,7 +191,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,9 +207,8 @@
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraBars.Navigation.TileNavPane tileNavPane1;
-        private DevExpress.XtraBars.Navigation.NavButton navButton2;
         private DevExpress.XtraBars.Navigation.NavButton navButton1;
         private DevExpress.XtraBars.Navigation.NavButton navButton3;
+        private DevExpress.XtraEditors.ControlNavigator controlNavigator1;
     }
 }

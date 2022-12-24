@@ -16,7 +16,7 @@ namespace QLVLXD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmChiTietHoaDon());
+            Application.Run(new Home());
         }
     }
 }
