@@ -17,8 +17,8 @@ namespace QLVLXD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACH()
         {
-            this.HOADON = new HashSet<HOADON>();
-            this.THANHTOAN = new HashSet<THANHTOAN>();
+            this.HOADONs = new HashSet<HOADON>();
+            this.THANHTOANs = new HashSet<THANHTOAN>();
         }
     
         public string MAKHACH { get; set; }
@@ -29,8 +29,8 @@ namespace QLVLXD
         public Nullable<long> NOHIENTAI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADON { get; set; }
+        public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THANHTOAN> THANHTOAN { get; set; }
+        public virtual ICollection<THANHTOAN> THANHTOANs { get; set; }
     }
 }

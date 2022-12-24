@@ -17,7 +17,7 @@ namespace QLVLXD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
         {
-            this.CHITIETHOADON = new HashSet<CHITIETHOADON>();
+            this.CHITIETHOADONs = new HashSet<CHITIETHOADON>();
         }
     
         public string MASANPHAM { get; set; }
@@ -26,7 +26,7 @@ namespace QLVLXD
         public string MALOAISANPHAM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETHOADON> CHITIETHOADON { get; set; }
+        public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
     }
 }

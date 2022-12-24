@@ -17,13 +17,13 @@ namespace QLVLXD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOAISANPHAM()
         {
-            this.SANPHAM = new HashSet<SANPHAM>();
+            this.SANPHAMs = new HashSet<SANPHAM>();
         }
     
         public string MALOAISANPHAM { get; set; }
         public string TENLOAISANPHAM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SANPHAM> SANPHAM { get; set; }
+        public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
     }
 }

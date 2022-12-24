@@ -18,7 +18,7 @@ namespace QLVLXD
             InitializeComponent();
         }
 
-        VLXDEntities1 data = new VLXDEntities1();
+        VLXDEntities2 data = new VLXDEntities2();
         bool action = false;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

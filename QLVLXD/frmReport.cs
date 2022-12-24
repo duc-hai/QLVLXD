@@ -13,7 +13,7 @@ namespace QLVLXD
 {
     public partial class frmReport : Form
     {
-        VLXDEntities1 data = new VLXDEntities1();
+        VLXDEntities2 data = new VLXDEntities2();
         public frmReport()
         {
             InitializeComponent();

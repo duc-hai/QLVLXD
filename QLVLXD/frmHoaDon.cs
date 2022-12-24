@@ -12,7 +12,7 @@ namespace QLVLXD
 {
     public partial class frmHoaDon : Form
     {
-        VLXDEntities1 data = new VLXDEntities1();
+        VLXDEntities2 data = new VLXDEntities2();
         bool action = false;
         public frmHoaDon()
         {
