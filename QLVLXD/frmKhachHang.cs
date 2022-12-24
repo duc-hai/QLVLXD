@@ -246,7 +246,25 @@ namespace QLVLXD
         {
 
         }
+        
+                private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+                txtMaKhach.Text = r.Cells[1].Value.ToString();
+                txtTenKhach.Text = r.Cells[2].Value.ToString();
+                txtDiaChi.Text = r.Cells[3].Value.ToString();
+                txtSdt.Text = r.Cells[4].Value.ToString();
+                txtNoDauKy.Text = r.Cells[5].Value.ToString();
+                txtNoHienTai.Text = r.Cells[6].Value.ToString();
 
+                menuDelete.Enabled = true;
+                txtMaKhach.ReadOnly = true;
+                action = true;
+            }
+        }
+        
         private void gvListKhach_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             //MessageBox.Show("Dữ liệu khóa ngoại bảng Thanh Toán không hợp lệ, không thể xóa !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
