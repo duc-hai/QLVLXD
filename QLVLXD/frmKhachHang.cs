@@ -23,11 +23,7 @@ namespace QLVLXD
 
         VLXDEntities2 data = new VLXDEntities2();
         bool action = false;
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+      
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -52,8 +48,8 @@ namespace QLVLXD
                           };
 
             menuDelete.Enabled = false;
-            //dataGridView1.DataSource = columns.ToList();
-            gcListKhachHang.DataSource = columns.ToList();
+            dataGridView1.DataSource = columns.ToList();
+            //gcListKhachHang.DataSource = columns.ToList();
         }
 
         private void clickButton ()
@@ -124,20 +120,6 @@ namespace QLVLXD
             txtNoDauKy.ResetText();
             txtNoHienTai.ResetText();
         }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtNoHienTai_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -157,23 +139,23 @@ namespace QLVLXD
                 e.Handled = true;
         }
 
-        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0)
-        //    {
-        //        DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
-        //        txtMaKhach.Text = r.Cells[1].Value.ToString();
-        //        txtTenKhach.Text = r.Cells[2].Value.ToString();
-        //        txtDiaChi.Text = r.Cells[3].Value.ToString();
-        //        txtSdt.Text = r.Cells[4].Value.ToString();
-        //        txtNoDauKy.Text = r.Cells[5].Value.ToString();
-        //        txtNoHienTai.Text = r.Cells[6].Value.ToString();
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+                txtMaKhach.Text = r.Cells[1].Value.ToString();
+                txtTenKhach.Text = r.Cells[2].Value.ToString();
+                txtDiaChi.Text = r.Cells[3].Value.ToString();
+                txtSdt.Text = r.Cells[4].Value.ToString();
+                txtNoDauKy.Text = r.Cells[5].Value.ToString();
+                txtNoHienTai.Text = r.Cells[6].Value.ToString();
 
-        //        menuDelete.Enabled = true;
-        //        txtMaKhach.ReadOnly = true;
-        //        action = true;
-        //    }
-        //}
+                menuDelete.Enabled = true;
+                txtMaKhach.ReadOnly = true;
+                action = true;
+            }
+        }
 
         private void menuDelete_Click(object sender, EventArgs e)
         {
@@ -207,46 +189,6 @@ namespace QLVLXD
             resetTextBox();
         }
 
-        private void txtMaKhach_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gbInformation_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSdt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNoHienTai_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void gvListKhach_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             //MessageBox.Show("Dữ liệu khóa ngoại bảng Thanh Toán không hợp lệ, không thể xóa !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -270,6 +212,25 @@ namespace QLVLXD
                 //        txtMaKhach.ReadOnly = true;
                 //        action = true;
                 //    }
+            }
+            
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+                txtMaKhach.Text = r.Cells[1].Value.ToString();
+                txtTenKhach.Text = r.Cells[2].Value.ToString();
+                txtDiaChi.Text = r.Cells[3].Value.ToString();
+                txtSdt.Text = r.Cells[4].Value.ToString();
+                txtNoDauKy.Text = r.Cells[5].Value.ToString();
+                txtNoHienTai.Text = r.Cells[6].Value.ToString();
+
+                menuDelete.Enabled = true;
+                txtMaKhach.ReadOnly = true;
+                action = true;
             }
         }
     }
