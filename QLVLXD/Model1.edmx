@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VLXDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHITIETHOADON">
+          <Key>
+            <PropertyRef Name="MAHOADON" />
+            <PropertyRef Name="MASANPHAM" />
+          </Key>
+          <Property Name="MAHOADON" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MASANPHAM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SOLUONG" Type="int" />
+          <Property Name="DONGIA" Type="int" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="SOHD" />
+          </Key>
+          <Property Name="SOHD" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MAKHACH" Type="varchar" MaxLength="10" />
+          <Property Name="NGAYHD" Type="date" />
+        </EntityType>
+        <EntityType Name="KHACH">
+          <Key>
+            <PropertyRef Name="MAKHACH" />
+          </Key>
+          <Property Name="MAKHACH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENKHACH" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+          <Property Name="SODIENTHOAI" Type="varchar" MaxLength="10" />
+          <Property Name="NODAUKY" Type="bigint" />
+          <Property Name="NOHIENTAI" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LOAISANPHAM">
+          <Key>
+            <PropertyRef Name="MALOAISANPHAM" />
+          </Key>
+          <Property Name="MALOAISANPHAM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENLOAISANPHAM" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MASANPHAM" />
+          </Key>
+          <Property Name="MASANPHAM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENSANPHAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="NHASANXUAT" Type="nvarchar" MaxLength="50" />
+          <Property Name="MALOAISANPHAM" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="THANHTOAN">
+          <Key>
+            <PropertyRef Name="SOPHIEU" />
+          </Key>
+          <Property Name="SOPHIEU" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NGAYPHIEU" Type="date" />
+          <Property Name="SOTIEN" Type="int" />
+          <Property Name="MAKHACH" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__CHITIETHO__MAHOA__440B1D61">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="SOHD" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MAHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETHO__MASAN__44FF419A">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MASANPHAM" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MASANPHAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKHACH__412EB0B6">
+          <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH">
+              <PropertyRef Name="MAKHACH" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="MAKHACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM__MALOAIS__398D8EEE">
+          <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISANPHAM">
+              <PropertyRef Name="MALOAISANPHAM" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MALOAISANPHAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__THANHTOAN__MAKHA__3E52440B">
+          <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+          <End Role="THANHTOAN" Type="Self.THANHTOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH">
+              <PropertyRef Name="MAKHACH" />
+            </Principal>
+            <Dependent Role="THANHTOAN">
+              <PropertyRef Name="MAKHACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VLXDModelStoreContainer">
+          <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THANHTOAN" EntityType="Self.THANHTOAN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CHITIETHO__MAHOA__440B1D61" Association="Self.FK__CHITIETHO__MAHOA__440B1D61">
+            <End Role="HOADON" EntitySet="HOADON" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETHO__MASAN__44FF419A" Association="Self.FK__CHITIETHO__MASAN__44FF419A">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKHACH__412EB0B6" Association="Self.FK__HOADON__MAKHACH__412EB0B6">
+            <End Role="KHACH" EntitySet="KHACH" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM__MALOAIS__398D8EEE" Association="Self.FK__SANPHAM__MALOAIS__398D8EEE">
+            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__THANHTOAN__MAKHA__3E52440B" Association="Self.FK__THANHTOAN__MAKHA__3E52440B">
+            <End Role="KHACH" EntitySet="KHACH" />
+            <End Role="THANHTOAN" EntitySet="THANHTOAN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VLXDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHITIETHOADON">
+          <Key>
+            <PropertyRef Name="MAHOADON" />
+            <PropertyRef Name="MASANPHAM" />
+          </Key>
+          <Property Name="MAHOADON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MASANPHAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DONGIA" Type="Int32" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__CHITIETHO__MAHOA__440B1D61" FromRole="CHITIETHOADON" ToRole="HOADON" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CHITIETHO__MASAN__44FF419A" FromRole="CHITIETHOADON" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="SOHD" />
+          </Key>
+          <Property Name="SOHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAKHACH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NGAYHD" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK__CHITIETHO__MAHOA__440B1D61" FromRole="HOADON" ToRole="CHITIETHOADON" />
+          <NavigationProperty Name="KHACH" Relationship="Self.FK__HOADON__MAKHACH__412EB0B6" FromRole="HOADON" ToRole="KHACH" />
+        </EntityType>
+        <EntityType Name="KHACH">
+          <Key>
+            <PropertyRef Name="MAKHACH" />
+          </Key>
+          <Property Name="MAKHACH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENKHACH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SODIENTHOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NODAUKY" Type="Int64" />
+          <Property Name="NOHIENTAI" Type="Int64" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__HOADON__MAKHACH__412EB0B6" FromRole="KHACH" ToRole="HOADON" />
+          <NavigationProperty Name="THANHTOAN" Relationship="Self.FK__THANHTOAN__MAKHA__3E52440B" FromRole="KHACH" ToRole="THANHTOAN" />
+        </EntityType>
+        <EntityType Name="LOAISANPHAM">
+          <Key>
+            <PropertyRef Name="MALOAISANPHAM" />
+          </Key>
+          <Property Name="MALOAISANPHAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENLOAISANPHAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__SANPHAM__MALOAIS__398D8EEE" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MASANPHAM" />
+          </Key>
+          <Property Name="MASANPHAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENSANPHAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NHASANXUAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MALOAISANPHAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK__CHITIETHO__MASAN__44FF419A" FromRole="SANPHAM" ToRole="CHITIETHOADON" />
+          <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK__SANPHAM__MALOAIS__398D8EEE" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
+        </EntityType>
+        <EntityType Name="THANHTOAN">
+          <Key>
+            <PropertyRef Name="SOPHIEU" />
+          </Key>
+          <Property Name="SOPHIEU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NGAYPHIEU" Type="DateTime" Precision="0" />
+          <Property Name="SOTIEN" Type="Int32" />
+          <Property Name="MAKHACH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KHACH" Relationship="Self.FK__THANHTOAN__MAKHA__3E52440B" FromRole="THANHTOAN" ToRole="KHACH" />
+        </EntityType>
+        <Association Name="FK__CHITIETHO__MAHOA__440B1D61">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="SOHD" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MAHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETHO__MASAN__44FF419A">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MASANPHAM" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MASANPHAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKHACH__412EB0B6">
+          <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH">
+              <PropertyRef Name="MAKHACH" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="MAKHACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__THANHTOAN__MAKHA__3E52440B">
+          <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+          <End Role="THANHTOAN" Type="Self.THANHTOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH">
+              <PropertyRef Name="MAKHACH" />
+            </Principal>
+            <Dependent Role="THANHTOAN">
+              <PropertyRef Name="MAKHACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM__MALOAIS__398D8EEE">
+          <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISANPHAM">
+              <PropertyRef Name="MALOAISANPHAM" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MALOAISANPHAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VLXDEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" />
+          <EntitySet Name="HOADON" EntityType="Self.HOADON" />
+          <EntitySet Name="KHACH" EntityType="Self.KHACH" />
+          <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
+          <EntitySet Name="THANHTOAN" EntityType="Self.THANHTOAN" />
+          <AssociationSet Name="FK__CHITIETHO__MAHOA__440B1D61" Association="Self.FK__CHITIETHO__MAHOA__440B1D61">
+            <End Role="HOADON" EntitySet="HOADON" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETHO__MASAN__44FF419A" Association="Self.FK__CHITIETHO__MASAN__44FF419A">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKHACH__412EB0B6" Association="Self.FK__HOADON__MAKHACH__412EB0B6">
+            <End Role="KHACH" EntitySet="KHACH" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__THANHTOAN__MAKHA__3E52440B" Association="Self.FK__THANHTOAN__MAKHA__3E52440B">
+            <End Role="KHACH" EntitySet="KHACH" />
+            <End Role="THANHTOAN" EntitySet="THANHTOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM__MALOAIS__398D8EEE" Association="Self.FK__SANPHAM__MALOAIS__398D8EEE">
+            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VLXDModelStoreContainer" CdmEntityContainer="VLXDEntities1">
+          <EntitySetMapping Name="CHITIETHOADON">
+            <EntityTypeMapping TypeName="VLXDModel.CHITIETHOADON">
+              <MappingFragment StoreEntitySet="CHITIETHOADON">
+                <ScalarProperty Name="MAHOADON" ColumnName="MAHOADON" />
+                <ScalarProperty Name="MASANPHAM" ColumnName="MASANPHAM" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADON">
+            <EntityTypeMapping TypeName="VLXDModel.HOADON">
+              <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+                <ScalarProperty Name="MAKHACH" ColumnName="MAKHACH" />
+                <ScalarProperty Name="NGAYHD" ColumnName="NGAYHD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACH">
+            <EntityTypeMapping TypeName="VLXDModel.KHACH">
+              <MappingFragment StoreEntitySet="KHACH">
+                <ScalarProperty Name="MAKHACH" ColumnName="MAKHACH" />
+                <ScalarProperty Name="TENKHACH" ColumnName="TENKHACH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="SODIENTHOAI" ColumnName="SODIENTHOAI" />
+                <ScalarProperty Name="NODAUKY" ColumnName="NODAUKY" />
+                <ScalarProperty Name="NOHIENTAI" ColumnName="NOHIENTAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAISANPHAM">
+            <EntityTypeMapping TypeName="VLXDModel.LOAISANPHAM">
+              <MappingFragment StoreEntitySet="LOAISANPHAM">
+                <ScalarProperty Name="MALOAISANPHAM" ColumnName="MALOAISANPHAM" />
+                <ScalarProperty Name="TENLOAISANPHAM" ColumnName="TENLOAISANPHAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAM">
+            <EntityTypeMapping TypeName="VLXDModel.SANPHAM">
+              <MappingFragment StoreEntitySet="SANPHAM">
+                <ScalarProperty Name="MASANPHAM" ColumnName="MASANPHAM" />
+                <ScalarProperty Name="TENSANPHAM" ColumnName="TENSANPHAM" />
+                <ScalarProperty Name="NHASANXUAT" ColumnName="NHASANXUAT" />
+                <ScalarProperty Name="MALOAISANPHAM" ColumnName="MALOAISANPHAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THANHTOAN">
+            <EntityTypeMapping TypeName="VLXDModel.THANHTOAN">
+              <MappingFragment StoreEntitySet="THANHTOAN">
+                <ScalarProperty Name="SOPHIEU" ColumnName="SOPHIEU" />
+                <ScalarProperty Name="NGAYPHIEU" ColumnName="NGAYPHIEU" />
+                <ScalarProperty Name="SOTIEN" ColumnName="SOTIEN" />
+                <ScalarProperty Name="MAKHACH" ColumnName="MAKHACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
