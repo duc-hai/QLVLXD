@@ -57,7 +57,7 @@ namespace QLVLXD
 
         private void Home_Load(object sender, EventArgs e)
         {
-
+             IsMdiContainer = true;
         }
     }
 }
