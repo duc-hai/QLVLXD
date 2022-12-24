@@ -54,5 +54,10 @@ namespace QLVLXD
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

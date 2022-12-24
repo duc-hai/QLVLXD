@@ -324,6 +324,7 @@
             this.Margin = new System.Windows.Forms.Padding(7, 4, 7, 4);
             this.Name = "Home";
             this.Text = "Ngân Trâm - Đức Hải";
+            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
