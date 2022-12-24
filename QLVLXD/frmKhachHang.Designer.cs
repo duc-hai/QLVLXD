@@ -52,10 +52,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.jsonDataSource1 = new DevExpress.DataAccess.Json.JsonDataSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcListKhachHang = new DevExpress.XtraGrid.GridControl();
             this.toolStrip1.SuspendLayout();
             this.gbInformation.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcListKhachHang)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMaKhach
@@ -157,6 +161,7 @@
             // gbInformation
             // 
             this.gbInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.gbInformation.Controls.Add(this.gcListKhachHang);
             this.gbInformation.Controls.Add(this.txtNoHienTai);
             this.gbInformation.Controls.Add(this.label7);
             this.gbInformation.Controls.Add(this.label6);
@@ -304,6 +309,21 @@
             // 
             this.jsonDataSource1.Name = "jsonDataSource1";
             // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gcListKhachHang;
+            this.gridView1.Name = "gridView1";
+            // 
+            // gcListKhachHang
+            // 
+            this.gcListKhachHang.Location = new System.Drawing.Point(357, 20);
+            this.gcListKhachHang.MainView = this.gridView1;
+            this.gcListKhachHang.Name = "gcListKhachHang";
+            this.gcListKhachHang.Size = new System.Drawing.Size(400, 200);
+            this.gcListKhachHang.TabIndex = 16;
+            this.gcListKhachHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,6 +342,8 @@
             this.gbInformation.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcListKhachHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,5 +372,7 @@
         private System.Windows.Forms.Button btnSaveData;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.DataAccess.Json.JsonDataSource jsonDataSource1;
+        private DevExpress.XtraGrid.GridControl gcListKhachHang;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

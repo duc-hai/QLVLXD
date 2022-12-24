@@ -50,6 +50,7 @@ namespace QLVLXD
 
             menuDelete.Enabled = false;
             dataGridView1.DataSource = columns.ToList();
+            gcListKhachHang.DataSource = columns.ToList();
         }
 
         private void btnSaveData_Click(object sender, EventArgs e)
