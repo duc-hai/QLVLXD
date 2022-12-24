@@ -50,7 +50,9 @@ namespace QLVLXD
 
         private void panelControl1_Paint(object sender, PaintEventArgs e)
         {
-
+            frmKhachHang frm = new frmKhachHang();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }
