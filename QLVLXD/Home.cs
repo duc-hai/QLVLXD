@@ -59,5 +59,12 @@ namespace QLVLXD
             //frm.MdiParent = this;
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmKhachHang frm = new frmKhachHang();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

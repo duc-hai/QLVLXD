@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
+using System.Web.UI.WebControls;
 
 namespace QLVLXD
 {
@@ -49,13 +52,8 @@ namespace QLVLXD
                           };
 
             menuDelete.Enabled = false;
-            dataGridView1.DataSource = columns.ToList();
+            //dataGridView1.DataSource = columns.ToList();
             gcListKhachHang.DataSource = columns.ToList();
-        }
-
-        private void btnSaveData_Click(object sender, EventArgs e)
-        {
-            clickButton();
         }
 
         private void clickButton ()
@@ -159,23 +157,23 @@ namespace QLVLXD
                 e.Handled = true;
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
-                txtMaKhach.Text = r.Cells[1].Value.ToString();
-                txtTenKhach.Text = r.Cells[2].Value.ToString();
-                txtDiaChi.Text = r.Cells[3].Value.ToString();
-                txtSdt.Text = r.Cells[4].Value.ToString();
-                txtNoDauKy.Text = r.Cells[5].Value.ToString();
-                txtNoHienTai.Text = r.Cells[6].Value.ToString();
+        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex >= 0)
+        //    {
+        //        DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+        //        txtMaKhach.Text = r.Cells[1].Value.ToString();
+        //        txtTenKhach.Text = r.Cells[2].Value.ToString();
+        //        txtDiaChi.Text = r.Cells[3].Value.ToString();
+        //        txtSdt.Text = r.Cells[4].Value.ToString();
+        //        txtNoDauKy.Text = r.Cells[5].Value.ToString();
+        //        txtNoHienTai.Text = r.Cells[6].Value.ToString();
 
-                menuDelete.Enabled = true;
-                txtMaKhach.ReadOnly = true;
-                action = true;
-            }
-        }
+        //        menuDelete.Enabled = true;
+        //        txtMaKhach.ReadOnly = true;
+        //        action = true;
+        //    }
+        //}
 
         private void menuDelete_Click(object sender, EventArgs e)
         {
@@ -247,6 +245,32 @@ namespace QLVLXD
         private void txtNoHienTai_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void gvListKhach_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            //MessageBox.Show("Dữ liệu khóa ngoại bảng Thanh Toán không hợp lệ, không thể xóa !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //txtDiaChi.Text = "ABC";
+            //MessageBox.Show(e.RowHandle.ToString());
+            if (e.RowHandle >= 0)
+            {
+                MessageBox.Show(e.RowHandle.ToString());
+                //GridView gridView = (GridView)gvListKhach.GetGroupRowValue(e.RowHandle);
+                //txtDiaChi.Text = 
+                    //DataGridViewRow r +=  gvListKhach.RowClick;
+                //DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+                //        txtMaKhach.Text = r.Cells[1].Value.ToString();
+                //        txtTenKhach.Text = r.Cells[2].Value.ToString();
+                //        txtDiaChi.Text = r.Cells[3].Value.ToString();
+                //        txtSdt.Text = r.Cells[4].Value.ToString();
+                //        txtNoDauKy.Text = r.Cells[5].Value.ToString();
+                //        txtNoHienTai.Text = r.Cells[6].Value.ToString();
+
+                //        menuDelete.Enabled = true;
+                //        txtMaKhach.ReadOnly = true;
+                //        action = true;
+                //    }
+            }
         }
     }
 }
