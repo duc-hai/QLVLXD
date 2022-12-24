@@ -27,7 +27,7 @@ namespace QLVLXD
         void LoadData()
         {
             int i = 0;
-            List<LOAISANPHAM> lst = data.LOAISANPHAM.ToList();
+            List<LOAISANPHAM> lst = data.LOAISANPHAMs.ToList();
             var columns = from t in lst
                           orderby t.MALOAISANPHAM
                           select new
@@ -61,7 +61,7 @@ namespace QLVLXD
                         MALOAISANPHAM = txtMaLoaiSP.Text.Trim(),
                         TENLOAISANPHAM = txtTenLoaiSP.Text.Trim(),
                     };
-                    data.LOAISANPHAM.Add(k);
+                    data.LOAISANPHAMs.Add(k);
                     data.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công", "Thông báo");
                     LoadData();
@@ -73,7 +73,7 @@ namespace QLVLXD
                 else
                 {
                     //update
-                    var k = data.LOAISANPHAM.Where(x => x.MALOAISANPHAM == txtMaLoaiSP.Text.Trim()).FirstOrDefault();
+                    var k = data.LOAISANPHAMs.Where(x => x.MALOAISANPHAM == txtMaLoaiSP.Text.Trim()).FirstOrDefault();
 
 
                     k.TENLOAISANPHAM = txtTenLoaiSP.Text.Trim();
@@ -124,13 +124,13 @@ namespace QLVLXD
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (data.SANPHAM.Where(x => x.MALOAISANPHAM == txtMaLoaiSP.Text.Trim()).FirstOrDefault() != null)
+                if (data.SANPHAMs.Where(x => x.MALOAISANPHAM == txtMaLoaiSP.Text.Trim()).FirstOrDefault() != null)
                 {
                     MessageBox.Show("Dữ liệu khóa ngoại bảng Sản Phẩm không hợp lệ, không thể xóa !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                var k = data.LOAISANPHAM.Where(x => x.MALOAISANPHAM == txtMaLoaiSP.Text.Trim()).FirstOrDefault();
-                data.LOAISANPHAM.Remove(k);
+                var k = data.LOAISANPHAMs.Where(x => x.MALOAISANPHAM == txtMaLoaiSP.Text.Trim()).FirstOrDefault();
+                data.LOAISANPHAMs.Remove(k);
                 data.SaveChanges();
                 LoadData();
                 resetTextBox();

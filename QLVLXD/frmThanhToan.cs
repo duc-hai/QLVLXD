@@ -32,12 +32,12 @@ namespace QLVLXD
             //cboKhachHang.DisplayMember = "TENKHACH";
             cboKhachHang.DisplayMember = "MAKHACH";
             cboKhachHang.ValueMember = "MAKHACH";
-            cboKhachHang.DataSource = data.KHACH.ToList();
+            cboKhachHang.DataSource = data.KHACHes.ToList();
         }
 
         private void LoadData () {
             int i = 0;
-            List<THANHTOAN> lst = data.THANHTOAN.ToList();
+            List<THANHTOAN> lst = data.THANHTOANs.ToList();
             var columns = from t in lst
                           orderby t.SOPHIEU
                           select new
@@ -86,7 +86,7 @@ namespace QLVLXD
                         SOTIEN = int.Parse(txtSoTien.Text.Trim()),
                         MAKHACH = cboKhachHang.SelectedValue.ToString(),
                     };
-                    data.THANHTOAN.Add(k);
+                    data.THANHTOANs.Add(k);
                     data.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công", "Thông báo");
                     LoadData();
@@ -98,7 +98,7 @@ namespace QLVLXD
                 else
                 {
                     //update
-                    var k = data.THANHTOAN.Where(x => x.SOPHIEU == txtSoPhieu.Text.Trim()).FirstOrDefault();
+                    var k = data.THANHTOANs.Where(x => x.SOPHIEU == txtSoPhieu.Text.Trim()).FirstOrDefault();
 
                     k.NGAYPHIEU = DateTime.Parse(txtNgayPhieu.Value.ToString("MM/dd/yyyy"));
                     k.SOTIEN = int.Parse(txtSoTien.Text.Trim());
@@ -156,8 +156,8 @@ namespace QLVLXD
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                var k = data.THANHTOAN.Where(x => x.SOPHIEU == txtSoPhieu.Text.Trim()).FirstOrDefault();
-                data.THANHTOAN.Remove(k);
+                var k = data.THANHTOANs.Where(x => x.SOPHIEU == txtSoPhieu.Text.Trim()).FirstOrDefault();
+                data.THANHTOANs.Remove(k);
                 data.SaveChanges();
                 LoadData();
                 resetTextBox();

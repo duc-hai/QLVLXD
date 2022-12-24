@@ -31,7 +31,7 @@ namespace QLVLXD
             this.rpKhach.Visible = true;
             this.rpKhach.RefreshReport();
             List<KHACH> lst = new List<KHACH>();
-            lst = data.KHACH.ToList();
+            lst = data.KHACHes.ToList();
             rpKhach.LocalReport.ReportPath = "rpKhachHang.rdlc";
             ReportDataSource source = new ReportDataSource("DataSet1", lst);
             rpKhach.LocalReport.DataSources.Clear();

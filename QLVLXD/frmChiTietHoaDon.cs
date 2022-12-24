@@ -12,7 +12,7 @@ namespace QLVLXD
 {
     public partial class frmChiTietHoaDon : Form
     {
-        VLXDEntities1 data = new VLXDEntities1();
+        VLXDEntities2 data = new VLXDEntities2();
         bool action = false;
         public frmChiTietHoaDon()
         {
@@ -40,7 +40,7 @@ namespace QLVLXD
         {
             cboMaHoaDon.DisplayMember = "SOHD";
             cboMaHoaDon.ValueMember = "SOHD";
-            cboMaHoaDon.DataSource = data.HOADON.ToList();
+            cboMaHoaDon.DataSource = data.HOADONs.ToList();
         }
 
         private void getSanPham()
@@ -48,13 +48,13 @@ namespace QLVLXD
             //cboMaSanPham.DisplayMember = "TENSANPHAM";
             cboMaSanPham.DisplayMember = "MASANPHAM";
             cboMaSanPham.ValueMember = "MASANPHAM";
-            cboMaSanPham.DataSource = data.SANPHAM.ToList();
+            cboMaSanPham.DataSource = data.SANPHAMs.ToList();
         }
 
         private void LoadData()
         {
             int i = 0;
-            List<CHITIETHOADON> lst = data.CHITIETHOADON.ToList();
+            List<CHITIETHOADON> lst = data.CHITIETHOADONs.ToList();
             var columns = from t in lst
                           orderby t.MAHOADON, t.MASANPHAM
                           select new
@@ -88,7 +88,7 @@ namespace QLVLXD
                         SOLUONG = int.Parse(txtSoLuong.Text.Trim()),
                         DONGIA = int.Parse(txtDonGia.Text.Trim()),
                     };
-                    data.CHITIETHOADON.Add(k);
+                    data.CHITIETHOADONs.Add(k);
                     data.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công", "Thông báo");
                     LoadData();
@@ -99,7 +99,7 @@ namespace QLVLXD
                 else
                 {
                     //update
-                    var k = data.CHITIETHOADON.Where(x => x.MAHOADON == cboMaHoaDon.SelectedValue.ToString() && x.MASANPHAM == cboMaSanPham.SelectedValue.ToString()).FirstOrDefault();
+                    var k = data.CHITIETHOADONs.Where(x => x.MAHOADON == cboMaHoaDon.SelectedValue.ToString() && x.MASANPHAM == cboMaSanPham.SelectedValue.ToString()).FirstOrDefault();
 
                     k.SOLUONG = int.Parse(txtSoLuong.Text.Trim());
                     k.DONGIA = int.Parse(txtDonGia.Text.Trim());
@@ -163,8 +163,8 @@ namespace QLVLXD
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                var k = data.CHITIETHOADON.Where(x => x.MAHOADON == cboMaHoaDon.SelectedValue.ToString() && x.MASANPHAM == cboMaSanPham.SelectedValue.ToString()).FirstOrDefault();
-                data.CHITIETHOADON.Remove(k);
+                var k = data.CHITIETHOADONs.Where(x => x.MAHOADON == cboMaHoaDon.SelectedValue.ToString() && x.MASANPHAM == cboMaSanPham.SelectedValue.ToString()).FirstOrDefault();
+                data.CHITIETHOADONs.Remove(k);
                 data.SaveChanges();
                 LoadData();
                 resetTextBox();

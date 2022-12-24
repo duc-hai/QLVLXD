@@ -32,13 +32,13 @@ namespace QLVLXD
             //cboKhach.DisplayMember = "TENKHACH";
             cboKhach.DisplayMember = "MAKHACH";
             cboKhach.ValueMember = "MAKHACH";
-            cboKhach.DataSource = data.KHACH.ToList();
+            cboKhach.DataSource = data.KHACHes.ToList();
         }
 
         private void LoadData()
         {
             int i = 0;
-            List<HOADON> lst = data.HOADON.ToList();
+            List<HOADON> lst = data.HOADONs.ToList();
             var columns = from t in lst
                           orderby t.SOHD
                           select new
@@ -69,7 +69,7 @@ namespace QLVLXD
             {
                 if (action == false)
                 {
-                    if (data.HOADON.Where(x => x.SOHD == txtSoHoaDon.Text.Trim()).FirstOrDefault() != null)
+                    if (data.HOADONs.Where(x => x.SOHD == txtSoHoaDon.Text.Trim()).FirstOrDefault() != null)
                     {
                         MessageBox.Show("Trùng khóa chính, vui lòng thử lại", "Cảnh báo");
                         return;
@@ -81,7 +81,7 @@ namespace QLVLXD
                         MAKHACH = cboKhach.SelectedValue.ToString(),
                         NGAYHD = DateTime.Parse(dtpDate.Value.ToString("MM/dd/yyyy")),
                     };
-                    data.HOADON.Add(k);
+                    data.HOADONs.Add(k);
                     data.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công", "Thông báo");
                     LoadData();
@@ -94,7 +94,7 @@ namespace QLVLXD
                 else
                 {
                     //update
-                    var k = data.HOADON.Where(x => x.SOHD == txtSoHoaDon.Text.Trim()).FirstOrDefault();
+                    var k = data.HOADONs.Where(x => x.SOHD == txtSoHoaDon.Text.Trim()).FirstOrDefault();
 
                     //k.SOHD = txtSoHoaDon.Text.Trim();
                     k.MAKHACH = cboKhach.SelectedValue.ToString();
@@ -131,14 +131,14 @@ namespace QLVLXD
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (data.CHITIETHOADON.Where(x => x.MAHOADON == txtSoHoaDon.Text.Trim()).FirstOrDefault() != null)
+                if (data.CHITIETHOADONs.Where(x => x.MAHOADON == txtSoHoaDon.Text.Trim()).FirstOrDefault() != null)
                 {
                     MessageBox.Show("Dữ liệu khóa ngoại bảng Chi Tiết Hóa Đơn không hợp lệ, không thể xóa !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                var k = data.HOADON.Where(x => x.SOHD == txtSoHoaDon.Text.Trim()).FirstOrDefault();
-                data.HOADON.Remove(k);
+                var k = data.HOADONs.Where(x => x.SOHD == txtSoHoaDon.Text.Trim()).FirstOrDefault();
+                data.HOADONs.Remove(k);
                 data.SaveChanges();
                 LoadData();
                 txtSoHoaDon.ResetText();

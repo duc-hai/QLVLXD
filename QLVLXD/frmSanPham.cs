@@ -45,13 +45,13 @@ namespace QLVLXD
             //cboLoaiSP.DisplayMember = "TENLOAISANPHAM";
             cboLoaiSP.DisplayMember = "MALOAISANPHAM";
             cboLoaiSP.ValueMember = "MALOAISANPHAM";
-            cboLoaiSP.DataSource = data.LOAISANPHAM.ToList();
+            cboLoaiSP.DataSource = data.LOAISANPHAMs.ToList();
         }
 
         void LoadData()
         {
             int i = 0;
-            List<SANPHAM> lst = data.SANPHAM.ToList();
+            List<SANPHAM> lst = data.SANPHAMs.ToList();
             var columns = from t in lst
                           orderby t.MASANPHAM
                           select new
@@ -89,7 +89,7 @@ namespace QLVLXD
                         NHASANXUAT = txtNSX.Text.Trim(),
                         MALOAISANPHAM = cboLoaiSP.SelectedValue.ToString(),
                     };
-                    data.SANPHAM.Add(k);
+                    data.SANPHAMs.Add(k);
                     data.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công", "Thông báo");
                     LoadData();
@@ -101,7 +101,7 @@ namespace QLVLXD
                 else
                 {
                     //update
-                    var k = data.SANPHAM.Where(x => x.MASANPHAM == txtMaSP.Text.Trim()).FirstOrDefault();
+                    var k = data.SANPHAMs.Where(x => x.MASANPHAM == txtMaSP.Text.Trim()).FirstOrDefault();
 
                     k.TENSANPHAM = txtTenSP.Text.Trim();
                     k.NHASANXUAT = txtNSX.Text.Trim();
@@ -147,13 +147,13 @@ namespace QLVLXD
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (data.CHITIETHOADON.Where(x => x.MASANPHAM == txtMaSP.Text.Trim()).FirstOrDefault() != null)
+                if (data.CHITIETHOADONs.Where(x => x.MASANPHAM == txtMaSP.Text.Trim()).FirstOrDefault() != null)
                 {
                     MessageBox.Show("Dữ liệu khóa ngoại bảng Chi Tiết Hóa Đơn không hợp lệ, không thể xóa !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                var k = data.SANPHAM.Where(x => x.MASANPHAM == txtMaSP.Text.Trim()).FirstOrDefault();
-                data.SANPHAM.Remove(k);
+                var k = data.SANPHAMs.Where(x => x.MASANPHAM == txtMaSP.Text.Trim()).FirstOrDefault();
+                data.SANPHAMs.Remove(k);
                 data.SaveChanges();
                 LoadData();
                 resetTextBox();
