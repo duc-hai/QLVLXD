@@ -13,6 +13,11 @@ namespace QLVLXD
 {
     public partial class Home : DevExpress.XtraEditors.XtraForm
     {
+        private void Home_Load(object sender, EventArgs e)
+        {
+            this.IsMdiContainer = true;
+        }
+
         public Home()
         {
             InitializeComponent();
@@ -48,16 +53,11 @@ namespace QLVLXD
 
         }
 
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        private void pnCKhachHang(object sender, EventArgs e)
         {
             frmKhachHang frm = new frmKhachHang();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
-        }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-             IsMdiContainer = true;
         }
     }
 }

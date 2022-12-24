@@ -83,7 +83,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(333, 260);
             this.panelControl1.TabIndex = 0;
-            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
+            this.panelControl1.Click += new System.EventHandler(this.pnCKhachHang);
             // 
             // labelControl1
             // 
@@ -321,6 +321,7 @@
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl3);
             this.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Home.IconOptions.Image")));
             this.Margin = new System.Windows.Forms.Padding(7, 4, 7, 4);
             this.Name = "Home";
             this.Text = "Ngân Trâm - Đức Hải";
